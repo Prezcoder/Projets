@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:38:43 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/01/25 15:59:14 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:00:42 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*get_next_line(int fd)
 		if (!str)
 			return (NULL);
 	bytes = 0;
-	while (bytes != 0)
+	while (bytes > 0)
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes == 0)
@@ -57,15 +57,9 @@ char	*get_next_line(int fd)
 		if (ft_strchr(str, '\n'))
 			break;
 	}
-	// temp = str;
+
 	temp = ft_select(str);
 	
-	// free(temp);
-	// if(bytes == 0 && (str[0]) == 0)
-	// {
-	// 	free (str);
-	// 	str = NULL;
-	// }
 	return (str);
 }
 
