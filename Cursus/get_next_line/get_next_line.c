@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:38:43 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/01/25 15:45:47 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:59:14 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*get_next_line(int fd)
 		if (!str)
 			return (NULL);
 	bytes = 0;
-	while (bytes >= 0 && !ft_strchr(str, '\n'))
+	while (bytes != 0)
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes == 0)
@@ -59,9 +59,6 @@ char	*get_next_line(int fd)
 	}
 	// temp = str;
 	temp = ft_select(str);
-	j = ft_strlen(temp);
-	printf("%d", j);
-	i = ft_strlen(str);
 	
 	// free(temp);
 	// if(bytes == 0 && (str[0]) == 0)
@@ -69,7 +66,7 @@ char	*get_next_line(int fd)
 	// 	free (str);
 	// 	str = NULL;
 	// }
-	return (&str[j-i]);
+	return (str);
 }
 
 void	*ft_calloc(size_t count, size_t size)

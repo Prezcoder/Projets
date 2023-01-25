@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:39:39 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/01/25 15:47:36 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:59:20 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+
 
 char	*get_next_line(int fd);
 int		ft_strchr(const char *s, int c);
