@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:10:42 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/01/16 15:11:41 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/01/25 13:57:32 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memmove(ptr, s1, size_s1);
 	ft_memmove(ptr + size_s1, s2, size_s2);
 	ptr[size_s1 + size_s2] = '\0';
+	free (s1);
+	free (s2);
 	return (ptr);
 }
