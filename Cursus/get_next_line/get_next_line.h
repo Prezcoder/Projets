@@ -28,12 +28,13 @@
 char	*get_next_line(int fd);
 int		ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
-int		ft_strchr(const char *s, int c);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *b, int c, size_t len);
 char	*ft_select(char *buf, char *str);
+char	*ft_strtrim(char const *s1, char const *set);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 #endif
