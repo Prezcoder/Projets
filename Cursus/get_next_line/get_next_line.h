@@ -34,6 +34,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *b, int c, size_t len);
-char	*ft_select(char *buf);
+char	*ft_select(char *buf, char *str);
 
 #endif

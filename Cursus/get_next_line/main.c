@@ -15,7 +15,6 @@
 int main ()
 {
 	int	fd;
-	int ret;
 	
 	fd = open("text.txt", O_RDONLY);
 	if (fd == -1)

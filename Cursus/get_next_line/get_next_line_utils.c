@@ -51,6 +51,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (ptr);
 }
 
+// [ft_strchr(s2, '\n')]
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t				i;

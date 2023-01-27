@@ -12,56 +12,75 @@
 
 #include "get_next_line.h"
 
-char	*ft_select(char *buf)
+char	*ft_select(char *str, char *temp)
 {
 	int		i;
 	int		j;
-	char	*dest;
+	int		k;
+	int		l;
 
+	i = ft_strlen(str);
+	printf("%d\n", i);
+	j = ft_strlen(temp);
+	printf("%d\n\n", j);
+	k = i;
 	i = 0;
-	while (buf[i] != '\n')
-		i++;
-	dest = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!dest)
-		return (NULL);
 	j = 0;
-	while (buf[i])
-		dest[j++] = buf[i++];
-	dest[j] = 0;
-	return (dest);
+	while (i <= k)
+	{
+		temp[j++] = str[i++];
+	}
+	l = ft_strchr(str, '\n');
+	if (l > 0)
+	{
+		i = 0;
+		temp[i++] = str[l++];
+	}
+	
+	// while (j == i)
+	// {
+	// 	j = 0;
+	// 	while (temp[j])
+	// 	{
+	// 		dest[i++] = temp[j++];
+	// 	}
+	// 	break;
+	// }
+	return (temp);
 }
 
 char	*get_next_line(int fd)
 {
-	int	j;
-	int	i;
-	char	*temp2;
 	int			bytes;
-	static char		*temp;
+	static char	*temp;
 	char		buf[BUFFER_SIZE + 1];
-	 char	*str = NULL;
+	char		*str;
 
 	if (fd < 0)
 		return (NULL);
-	str = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (!str)
-			return (NULL);
-	bytes = 0;
+	str = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	temp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!temp)
+		return (NULL);
+	bytes = 1;
 	while (bytes > 0)
-	{
+	{	
+	
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes == 0)
 			return (NULL);
 		buf[bytes] = '\0';
-		str = ft_strjoin(str, buf);
-		if (ft_strchr(str, '\n'))
+		str = ft_strjoin(temp, buf);
+		temp = ft_select(str, temp);
+		if (ft_strchr(buf, '\n'))
 			break;
 	}
-
-	temp = ft_select(str);
 	
 	return (str);
 }
+// &buf[ft_strchr(buf, '\n')]
 
 void	*ft_calloc(size_t count, size_t size)
 {
