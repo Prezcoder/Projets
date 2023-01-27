@@ -19,33 +19,19 @@ char	*ft_select(char *str, char *temp)
 	int		k;
 	int		l;
 
-	i = ft_strlen(str);
-	printf("%d\n", i);
-	j = ft_strlen(temp);
-	printf("%d\n\n", j);
-	k = i;
+	k = ft_strlen(str);
+	printf("%d\n", k);
 	i = 0;
 	j = 0;
-	while (i <= k)
-	{
+	while (i <= k && (!ft_strchr(str, '\n')))
 		temp[j++] = str[i++];
-	}
 	l = ft_strchr(str, '\n');
 	if (l > 0)
 	{
 		i = 0;
+		l += 1;
 		temp[i++] = str[l++];
 	}
-	
-	// while (j == i)
-	// {
-	// 	j = 0;
-	// 	while (temp[j])
-	// 	{
-	// 		dest[i++] = temp[j++];
-	// 	}
-	// 	break;
-	// }
 	return (temp);
 }
 
@@ -59,15 +45,12 @@ char	*get_next_line(int fd)
 	if (fd < 0)
 		return (NULL);
 	str = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!str)
-		return (NULL);
 	temp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!temp)
+	if (!temp || !str)
 		return (NULL);
 	bytes = 1;
 	while (bytes > 0)
 	{	
-	
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes == 0)
 			return (NULL);
@@ -77,7 +60,6 @@ char	*get_next_line(int fd)
 		if (ft_strchr(buf, '\n'))
 			break;
 	}
-	
 	return (str);
 }
 // &buf[ft_strchr(buf, '\n')]
