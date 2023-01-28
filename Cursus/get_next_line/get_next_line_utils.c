@@ -46,12 +46,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memmove(ptr, s1, size_s1);
 	ft_memmove(ptr + size_s1, s2, size_s2);
 	ptr[size_s1 + size_s2] = '\0';
-	// free (&s1);
-	// free (&s2);
 	return (ptr);
 }
 
-// [ft_strchr(s2, '\n')]
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t				i;

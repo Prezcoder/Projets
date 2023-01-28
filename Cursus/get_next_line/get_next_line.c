@@ -25,7 +25,7 @@ char	*ft_select(char *str, char *temp)
 	while (i <= k && (!ft_strchr(str, '\n')))
 		temp[j++] = str[i++];
 	l = ft_strchr(str, '\n');
-	if ( l > 0)
+	if (l > 0)
 	{
 		while (l < k)
 		{
@@ -49,23 +49,32 @@ char	*get_next_line(int fd)
 	if (fd < 0)
 		return (NULL);
 	str = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	temp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (ft_strlen(temp) >= 0)
+		temp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!temp || !str)
 		return (NULL);
 	bytes = 1;
 	while (bytes > 0 && (!ft_strchr(buf, '\n')))
 	{	
 		bytes = read(fd, buf, BUFFER_SIZE);
-		if (bytes == 0)
-			return (NULL);
-		buf[bytes] = '\0';
 		str = ft_strjoin(temp, buf);
 		temp = ft_select(str, temp);
+		// printf("%s", temp);
 	}
-	if (ft_strchr(buf, '\n'))
+	if (bytes > 0 && ft_strchr(buf, '\n'))
+	{
 		str = ft_truncate(str);
+	}
+	if (bytes <= 0)
+	{
+		buf[bytes] = '\0';
+		free (str);
+		free (temp);
+		return (NULL);
+	}
 	return (str);
 }
+// && (!ft_strchr(buf, '\n'))
 
 char	*ft_truncate(char *str)
 {
@@ -76,7 +85,7 @@ char	*ft_truncate(char *str)
 	i = ft_strchr(str, '\n');
 	while (j != i)
 		j++;
-	str[j] = '\0';
+	str[j + 1] = '\0';
 	return (str);
 }
 
