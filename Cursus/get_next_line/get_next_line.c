@@ -66,7 +66,7 @@ char	*get_next_line(int fd)
 		str = ft_truncate(str);
 	return (str);
 }
-// &buf[ft_strchr(buf, '\n')]
+
 char	*ft_truncate(char *str)
 {
 	int i;
