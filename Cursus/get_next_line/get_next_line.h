@@ -34,7 +34,6 @@ size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *b, int c, size_t len);
 char	*ft_select(char *buf, char *str);
-char	*ft_strtrim(char const *s1, char const *set);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char    *ft_truncate(char *str);
 
 #endif

@@ -20,7 +20,6 @@ char	*ft_select(char *str, char *temp)
 	int		l;
 
 	k = ft_strlen(str);
-	printf("%d\n", k);
 	i = 0;
 	j = 0;
 	while (i <= k && (!ft_strchr(str, '\n')))
@@ -54,7 +53,7 @@ char	*get_next_line(int fd)
 	if (!temp || !str)
 		return (NULL);
 	bytes = 1;
-	while (bytes > 0)
+	while (bytes > 0 && (!ft_strchr(buf, '\n')))
 	{	
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes == 0)
@@ -62,13 +61,24 @@ char	*get_next_line(int fd)
 		buf[bytes] = '\0';
 		str = ft_strjoin(temp, buf);
 		temp = ft_select(str, temp);
-		if (ft_strchr(buf, '\n'))
-			break;
 	}
-	str = ft_strtrim(str, temp);
+	if (ft_strchr(buf, '\n'))
+		str = ft_truncate(str);
 	return (str);
 }
 // &buf[ft_strchr(buf, '\n')]
+char	*ft_truncate(char *str)
+{
+	int i;
+	int j;
+
+	j = 0;
+	i = ft_strchr(str, '\n');
+	while (j != i)
+		j++;
+	str[j] = '\0';
+	return (str);
+}
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -96,48 +106,4 @@ void	*ft_memset(void *b, int c, size_t len)
 		i++;
 	}
 	return (ptr);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	char		*result;
-	int			i;
-	int			j;
-
-	i = 0;
-	j = ft_strlen(s1);
-	if (!s1 || !set)
-		return (NULL);
-	while (s1[i] && ft_strchr(set, s1[i]))
-		i++;
-	while (j > i && ft_strchr(set, s1[j - 1]))
-		j--;
-	result = malloc(sizeof(char) * (j - i) + 1);
-	if (!result)
-		return (NULL);
-	ft_strlcpy(result, s1 + i, (j - i) + 1);
-	return (result);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	src_len;
-
-	i = 0;
-	if (!dst || !src)
-		return (0);
-	src_len = ft_strlen(src);
-	if (!dstsize)
-		return (src_len);
-	while (src[i] && i < dstsize - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	if (dstsize < src_len)
-		dst[dstsize - 1] = '\0';
-	else if (dstsize != 0)
-		dst[i] = '\0';
-	return (src_len);
 }
