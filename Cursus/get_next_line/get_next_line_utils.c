@@ -12,94 +12,78 @@
 
 #include "get_next_line.h"
 
-int	ft_strchr(const char *s, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	int		sizetotal;
+	char	*res;
+	int		i;
+	int		j;
+
+	i = 0;
+	sizetotal = ft_strlen(s1) + ft_strlen(s2);
+	res = malloc(sizeof(char) * (sizetotal + 1));
+	if (!res || !s1 || !s2)
+		return (NULL);
+	while (s1[i] != 0)
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != 0)
+	{
+		res[i] = s2[j];
+		i++;
+		j++;
+	}
+	res[sizetotal] = 0;
+	return (res);
+}
+
+char	*ft_strchr(const char *string, int searchedChar )
+{
+	char	*str;
+
+	str = (char *)string;
+	while (*str != searchedChar && *str != 0)
+		str++;
+	if (*str == searchedChar)
+		return (str);
+	else
+		return (NULL);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+	size_t	i;
+
+	str = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t elementCount, size_t elementSize)
+{
+	char	*res;
+
+	res = malloc(elementSize * elementCount);
+	if (!res)
+		return (NULL);
+	ft_bzero(res, elementSize * elementCount);
+	return (res);
+}
+
+size_t	ft_strlen(const char *theString)
 {
 	int	i;
 
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return (i);
-		i++;
-	}
-	if (s[i] == (char)c)
-		return (i);
-	return (0);
-}
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*ptr;
-	int		size_s1;
-	int		size_s2;
-
-	size_s1 = ft_strlen(s1);
-	size_s2 = ft_strlen(s2);
-	if (!s1 || !s2)
-		return (NULL);
-	ptr = (char *)malloc(sizeof(char) * (size_s1 + size_s2) + 1);
-	if (!ptr)
-		return (NULL);
-	ft_memmove(ptr, s1, size_s1);
-	ft_memmove(ptr + size_s1, s2, size_s2);
-	ptr[size_s1 + size_s2] = '\0';
-	return (ptr);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t				i;
-	unsigned char		*dest;
-	const unsigned char	*source;
-
-	if (!dst || !src)
-		return (dst);
-	source = (unsigned char *)src;
-	dest = (unsigned char *)dst;
-	i = 0;
-	while (n--)
-	{
-		dest[i] = source[i];
-		i++;
-	}
-	return (dest);
-}
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	unsigned int	i;
-	unsigned char	*dest;
-	unsigned char	*source;
-
-	source = (unsigned char *)src;
-	dest = (unsigned char *)dst;
-	if (!dst || !src)
-		return (NULL);
-	if (dest < source)
-		return (ft_memcpy(dest, src, len));
-	else
-	{
-		i = len;
-		while (i > 0)
-		{
-			dest[i - 1] = source[i - 1];
-			i--;
-		}
-	}
-	return (dest);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
+	while (theString[i])
 		i++;
 	return (i);
 }
