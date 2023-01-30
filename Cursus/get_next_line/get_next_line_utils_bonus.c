@@ -6,11 +6,11 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:39:05 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/01/30 12:00:24 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/01/30 14:25:46 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strjoin(char *saved, char *buf)
 {

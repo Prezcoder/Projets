@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:45:30 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/01/17 12:56:14 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:33:44 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,10 @@ char	**ft_split(char const *s, char c)
 {
 	char	**tab;
 
+	if (!s)
+		return (NULL);
 	tab = (char **)malloc(sizeof(char *) * (ft_words_count(s, c) + 1));
-	if (!tab || !s)
+	if (!tab)
 		return (NULL);
 	tab = ft_tab(tab, s, c);
 	return (tab);
