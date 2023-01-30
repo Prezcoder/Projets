@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:39:05 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/01/30 12:18:08 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:00:24 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*malloc_join(char *saved, char *buf)
-{
-	char	*str;
-
-	str = malloc((((ft_strlen(saved)) + ft_strlen(buf)) + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	return (str);
-}
 
 char	*ft_strjoin(char *saved, char *buf)
 {
@@ -66,6 +56,34 @@ char	*ft_strchr(const char *s, int c)
 	if (s[i] == (char)c)
 		return ((char *)s + i);
 	return (NULL);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+	size_t	i;
+
+	str = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t elementCount, size_t elementSize)
+{
+	char	*res;
+
+	res = malloc(elementSize * elementCount);
+	if (!res)
+	{
+		free(res);
+		return (NULL);
+	}
+	ft_bzero(res, elementSize * elementCount);
+	return (res);
 }
 
 size_t	ft_strlen(const char *theString)
