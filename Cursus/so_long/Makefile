@@ -21,7 +21,7 @@ $(NAME): $(OBJS)
 clean:
 	@rm -f $(OBJS)
 	@rm -rf $(LIBMLX)/build
-
+	
 fclean: clean
 	@rm -f $(NAME)
 
