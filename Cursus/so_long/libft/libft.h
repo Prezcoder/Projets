@@ -6,15 +6,23 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 07:46:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 10:12:33 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:28:47 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <limits.h>
+# include <stdarg.h>
+// # include "./printf/ft_printf.h"
 
 typedef struct s_list
 {
@@ -70,4 +78,20 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 int		ft_lstsize(t_list *lst);
 
+char	*ft_next(char *str);
+char	*ft_line(char *str);
+char	*read_file(int fd, char *str);
+char	*get_next_line(int fd);
+char	*malloc_join(char *saved, char *buf);
+
+int		ft_printf(const char *s, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putnbr_fd2(int n, int fd);
+size_t	ft_nbrlen_base(long long int n, size_t base);
+size_t	ft_strlen(const char *s);
+int		ft_putnbr_u(unsigned int n, int fd);
+int		ft_putnbr_hexa(uintptr_t n, int fd, char format);
+int		ft_putnbr_ptr(uintptr_t n, int fd);
+size_t	ft_nbrlen_base2(uintptr_t n, size_t base);
 #endif

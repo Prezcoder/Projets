@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 12:43:27 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/01/16 14:14:31 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/01/17 11:40:09 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	main(void)
+/*Renvoie le dernier élément de la liste.*/
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	fd;
-
-	fd = open("./map/map.ber", O_RDONLY);
-	if (fd == -1)
-		return (1);
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	close(fd);
+	if (lst)
+	{
+		while (lst->next)
+			lst = lst->next;
+	}
+	return (lst);
 }

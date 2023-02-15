@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 12:43:27 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/01/16 10:59:03 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/01/16 12:40:24 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	main(void)
+/*Écrit la chaîne de caractères ’s’ sur le
+descripteur de fichier donné.*/
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	fd;
+	int	i;
 
-	fd = open("./map/map.ber", O_RDONLY);
-	if (fd == -1)
-		return (1);
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	close(fd);
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }

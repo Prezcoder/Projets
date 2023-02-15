@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 12:43:27 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/01/16 09:22:47 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/01/16 10:54:28 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	main(void)
+/*Applique la fonction ’f’ à chaque caractère de la chaîne de caractères 
+transmise comme argument, et en passant son index comme premier argument.
+Chaque caractère est transmis par adresse à ’f’ afin d’être modifié 
+si nécessaire.*/
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	fd;
+	unsigned int	i;
 
-	fd = open("./map/map.ber", O_RDONLY);
-	if (fd == -1)
-		return (1);
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	close(fd);
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, (s + i));
+		i++;
+	}
 }

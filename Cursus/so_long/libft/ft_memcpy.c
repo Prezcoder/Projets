@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 12:43:27 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/01/10 12:51:23 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/01/18 08:53:40 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	main(void)
+/*memcpy() is used to copy a block of 
+memory from a location to another.*/
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int	fd;
+	size_t				i;
+	unsigned char		*dest;
+	const unsigned char	*source;
 
-	fd = open("./map/map.ber", O_RDONLY);
-	if (fd == -1)
-		return (1);
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	close(fd);
+	if (!dst || !src)
+		return (dst);
+	source = (unsigned char *)src;
+	dest = (unsigned char *)dst;
+	i = 0;
+	while (n--)
+	{
+		dest[i] = source[i];
+		i++;
+	}
+	return (dest);
 }

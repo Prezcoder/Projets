@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 12:43:27 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/01/16 14:05:45 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/01/17 11:40:20 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	main(void)
+/*Compte le nombre d’éléments de la liste.*/
+int	ft_lstsize(t_list *lst)
 {
-	int	fd;
+	int	i;
 
-	fd = open("./map/map.ber", O_RDONLY);
-	if (fd == -1)
-		return (1);
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	close(fd);
+	i = 0;
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

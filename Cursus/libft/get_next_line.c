@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:38:43 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 10:01:29 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/15 10:11:24 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-
-char	*malloc_join(char *saved, char *buf)
-{
-	char	*str;
-
-	str = malloc((((ft_strlen(saved)) + ft_strlen(buf)) + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	return (str);
-}
 
 char	*ft_next(char *str)
 {
@@ -58,7 +48,9 @@ char	*ft_line(char *str)
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
-	line = malloc((i + 2) * sizeof(char));
+	if (str[i] == '\n')
+		i++;
+	line = malloc((i + 1) * sizeof(char));
 	if (!line)
 		return (NULL);
 	i = 0;

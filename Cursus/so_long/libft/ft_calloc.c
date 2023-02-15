@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 12:10:42 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 10:09:17 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/01/11 08:45:50 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/01/12 08:49:55 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*Alloue (avec malloc) et retourne une nouvelle
-chaîne, résultat de la concaténation de s1 et s2.*/
-char	*ft_strjoin(char *s1, char *s2)
-{
-	char	*ptr;
-	int		size_s1;
-	int		size_s2;
+/*“calloc” or “contiguous allocation” method 
+is used to dynamically allocate the specified 
+number of blocks of memory of the specified type. 
+It is very much similar to malloc() but has 
+two different points and these are:
 
-	size_s1 = ft_strlen(s1);
-	size_s2 = ft_strlen(s2);
-	if (!s1 || !s2)
-		return (NULL);
-	ptr = (char *)malloc(sizeof(char) * (size_s1 + size_s2) + 1);
+It initializes each block with a default value ‘0’.
+It has two parameters or arguments as compare to malloc().*/
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = (malloc(count * size));
 	if (!ptr)
 		return (NULL);
-	ft_memcpy(ptr, s1, size_s1);
-	ft_memcpy(ptr + size_s1, s2, size_s2);
-	ptr[size_s1 + size_s2] = '\0';
-	free (s1);
+	ft_bzero(ptr, count * size);
 	return (ptr);
 }

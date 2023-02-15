@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "unistd.h": "c",
-        "vector": "cpp"
+        "vector": "cpp",
+        "libft.h": "c"
     }
 }

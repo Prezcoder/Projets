@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 12:43:27 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/01/10 11:09:12 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/01/18 08:52:51 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	main(void)
+/*strrchr() searches for the last occurrence 
+of the character c (an unsigned char) in the 
+string pointed to by the argument s.*/
+char	*ft_strrchr(const char *s, int c)
 {
-	int	fd;
+	size_t	len;
 
-	fd = open("./map/map.ber", O_RDONLY);
-	if (fd == -1)
-		return (1);
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	ft_printf("%s", get_next_line(fd));
-	close(fd);
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	while (len > 0)
+	{
+		if (s[len] == (char)c)
+			return ((char *)s + len);
+		len--;
+	}
+	if (s[len] == (char)c)
+		return ((char *)s + len);
+	return (NULL);
 }
