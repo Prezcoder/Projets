@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 07:46:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 12:28:47 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:55:09 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 2048
 # endif
 
 # include <stdlib.h>
@@ -22,7 +22,6 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <stdarg.h>
-// # include "./printf/ft_printf.h"
 
 typedef struct s_list
 {

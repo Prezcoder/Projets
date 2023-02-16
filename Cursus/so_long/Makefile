@@ -4,7 +4,9 @@ LIBMLX	:= ./MLX42
 
 HEADERS	:= -I ./include -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
-SRCS	:= $(shell find ./src -iname "*.c")
+SRCS	:=./src/ft_parsing.c \
+			./src/main.c \
+			
 OBJS	:= ${SRCS:.c=.o}
 LIBFT	:= ./libft/libft.a
 
