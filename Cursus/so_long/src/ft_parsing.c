@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:52:45 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/16 15:22:40 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:34:07 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,37 @@ int	map_is_rec(t_map *ms)
 {
 	if (((ms->all_char - ms->row + 1) % ms->column) == 0
 		&& ((ms->all_char - ms->row + 1) % ms->row) == 0)
-		return (1);
-	else
 		return (0);
+	else
+		return (1);
+}
+
+int	ft_wall(t_map *ms, char *file)
+{
+	ms->all_char--;
+	while (file[ms->all_char] == '1')
+		ms->all_char--;
+	if (file[ms->all_char] != 1 && file[ms->all_char] != '\n')
+		return (1);
+	ms->all_char--;
+	while (ms->all_char > ms->column)
+	{
+		if (file[ms->all_char] == '1')
+			ms->all_char -= ms->column +1;
+		else
+			return (1);
+	}
+	while (file[ms->all_char] == '1')
+		ms->all_char--;
+	ms->all_char += ms->column + 2;
+	while (file[ms->all_char])
+	{
+		if (file[ms->all_char] == '1')
+			ms->all_char += ms->column + 1;
+		else
+			return (1);
+	}
+	return (0);
 }
 
 t_map	*count_objects(char *file)
@@ -82,34 +110,7 @@ t_map	*count_objects(char *file)
 	ms->column = ft_column(file);
 	ms->row++;
 	ms->rectangle = map_is_rec(ms);
+	ms->wall = ft_wall(ms, file);
 	free(file);
 	return (ms);
-}
-
-int ft_wall(t_map *ms, char *file)
-{
-	ms->all_char--;
-	while (file[ms->all_char] == '1')
-		ms->all_char--;
-	if (file[ms->all_char] != 1 && file[ms->all_char] != '\n')
-			return (0);
-	ms->all_char--;
-	while (ms->all_char > ms->column)
-	{
-		if (file[ms->all_char] == '1')
-			ms->all_char -= ms->column +1;
-		else
-			return (0);
-	}
-	while (file[ms->all_char] == '1')
-		ms->all_char--;
-	ms->all_char += ms->column + 2;
-	while (file[ms->all_char])
-	{
-		if (file[ms->all_char] == '1')
-			ms->all_char += ms->column + 1;
-		else
-			return (0);
-	}
-	return (1);
 }

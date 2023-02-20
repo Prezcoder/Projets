@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 09:03:10 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 12:42:39 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:50:03 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_putnbr_u(unsigned int n, int fd)
 		if (temp < 0)
 			return (-1);
 	}
-	nbr_len += ft_nbrlen_base(n, ft_strlen(base));
+	nbr_len += ft_nbrlen_base(n, ft_strlen2(base));
 	return (nbr_len);
 }
 
@@ -58,7 +58,7 @@ int	ft_putnbr_hexa(uintptr_t n, int fd, char format)
 		if (temp < 0)
 			return (-1);
 	}
-	nbr_len += ft_nbrlen_base(n, ft_strlen(base));
+	nbr_len += ft_nbrlen_base(n, ft_strlen2(base));
 	return (nbr_len);
 }
 
@@ -82,7 +82,7 @@ int	ft_putnbr_ptr(uintptr_t n, int fd)
 		if (temp < 0)
 			return (-1);
 	}
-	nbr_len += ft_nbrlen_base2(n, ft_strlen(base));
+	nbr_len += ft_nbrlen_base2(n, ft_strlen2(base));
 	return (nbr_len + 2);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:45:30 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/01/30 13:33:44 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:42:04 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_words_count(char const *s, char c)
 	return (j);
 }
 
-static char	**ft_freeall(char **tab)
+char	**ft_freeall(char **tab)
 {
 	int	i;
 

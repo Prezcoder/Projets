@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 07:46:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/15 14:55:09 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:42:15 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,10 @@ int		ft_putchar(char c);
 int		ft_putstr(char *s);
 int		ft_putnbr_fd2(int n, int fd);
 size_t	ft_nbrlen_base(long long int n, size_t base);
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen2(const char *s);
 int		ft_putnbr_u(unsigned int n, int fd);
 int		ft_putnbr_hexa(uintptr_t n, int fd, char format);
 int		ft_putnbr_ptr(uintptr_t n, int fd);
 size_t	ft_nbrlen_base2(uintptr_t n, size_t base);
+char	**ft_freeall(char **tab);
 #endif
