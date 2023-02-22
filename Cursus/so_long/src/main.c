@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/20 15:58:27 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/22 08:41:03 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,59 +34,33 @@ t_map	*get_ms(void)
 		ms->rectangle = 0;
 		ms->all_char = 0;
 		ms->wall = 0;
+		ms->map = 0;
 	}
 	return (ms);
 }
 
 int	main(int argc, char **argv)
 {
-	char		*file;
 	int			fd;
 	t_map		*ms;
-	int			ber_ok;
-	char		**map;
-	mlx_t 		*mlx;
-	mlx_image_t *img;
+	mlx_t		*mlx;
 
 	if (argc != 2)
 		return (ft_printf("%s", "Invalid number of arguments."));
-	ber_ok = ft_find_ber(argv[1]);
-	if (ber_ok == 1)
+	if (ft_find_ber(argv[1]) == 1)
 		ft_printf("%s", "Error\nThe file format isn't good.\n");
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		return (ft_printf("%s", "Open failed.\n"));
-	file = ft_read_map(fd);
-	ms = count_objects(file);
-	ft_printf("Personnage :%d\n", ms->p);
-	ft_printf("Collectibles :%d\n", ms->c);
-	ft_printf("Sortie :%d\n", ms->e);
-	ft_printf("Lignes :%d\n", ms->row);
-	ft_printf("Colones :%d\n", ms->column);
-	ft_printf("Rectangle :%d\n", ms->rectangle);
-	ft_printf("Longueur :%d\n", ms->all_char);
-	ft_printf("Wall :%d\n", ms->wall);
-	ft_validate(ms);
-	map = ft_split(file, '\n');
+	ms = ft_parsing(fd);
 	close(fd);
-	mlx = mlx_init(WIDTH, HEIGHT, "Test", 1);
+	mlx = mlx_init(ms->column * IS, ms->row * IS, "so_long", 1);
 	if (!mlx)
 		return (ft_printf("%s", "mlx_init failed"));
-	mlx_texture_t *texture = mlx_load_png("./images/bricksx64.png");
-	img = mlx_texture_to_image(mlx, texture);
-	int i = 0;
-	int j = 0;
-
-	while (map[i][j])
-	{
-		if (map[i][j] == '1')
-			mlx_image_to_window(mlx, img, 0, (j * 64));
-		j++;
-	}
-	
-	
+	ft_render(image_init(mlx), mlx, ms);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
-	ft_freeall(map);
+	mlx_close_window(mlx);
+	ft_freeall(ms->map);
 	free_ms(ms);
 }

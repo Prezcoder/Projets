@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 08:38:49 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/20 12:47:40 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:28:55 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,17 @@ int	ft_validate(t_map *ms)
 	else
 		ft_printf("%s", "The map...It's all good man!");
 	return (1);
+}
+
+t_map	*ft_parsing(int fd)
+{
+	char	*file;
+	t_map	*ms;
+
+	ms = get_ms();
+	file = ft_read_map(fd);
+	ms = count_objects(file);
+	ft_validate(ms);
+	ms->map = ft_split(file, '\n');
+	return (ms);
 }
