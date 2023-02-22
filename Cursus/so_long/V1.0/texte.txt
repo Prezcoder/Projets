@@ -1,0 +1,240 @@
+==901== Memcheck, a memory error detector
+==901== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==901== Using Valgrind-3.21.0.GIT-lbmacos and LibVEX; rerun with -h for copyright info
+==901== Command: ./so_long ./map/map.ber
+==901== Parent PID: 99691
+==901== 
+==901== Invalid write of size 8
+==901==    at 0x10000126F: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aedb0 is 16 bytes after a block of size 16 in arena "client"
+==901== 
+==901== Invalid write of size 8
+==901==    at 0x100001277: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 8
+==901==    at 0x10000127F: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda0 is 8 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 8
+==901==    at 0x100001287: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aed98 is 0 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 4
+==901==    at 0x1000012E3: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda0 is 8 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 4
+==901==    at 0x1000012BE: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aed9c is 4 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 4
+==901==    at 0x1000012DA: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aed98 is 0 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 4
+==901==    at 0x1000012F0: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 4
+==901==    at 0x100000EB7: map_is_rec (in ./so_long)
+==901==    by 0x10000130A: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 4
+==901==    at 0x10000130B: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda4 is 12 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 4
+==901==    at 0x100000EE4: ft_wall (in ./so_long)
+==901==    by 0x100001319: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 4
+==901==    at 0x100000EF0: ft_wall (in ./so_long)
+==901==    by 0x100001319: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 4
+==901==    at 0x100000EFE: ft_wall (in ./so_long)
+==901==    by 0x100001319: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 4
+==901==    at 0x100000F0E: ft_wall (in ./so_long)
+==901==    by 0x100001319: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 4
+==901==    at 0x100000F42: ft_wall (in ./so_long)
+==901==    by 0x100001319: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 4
+==901==    at 0x100000F72: ft_wall (in ./so_long)
+==901==    by 0x100001319: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 1
+==901==    at 0x100000F75: ft_wall (in ./so_long)
+==901==    by 0x100001319: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3af4ef is 1 bytes before a block of size 440 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100013AE3: ft_strjoin (in ./so_long)
+==901==    by 0x100000E4A: ft_read_map (in ./so_long)
+==901==    by 0x10000129C: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 4
+==901==    at 0x100000F8F: ft_wall (in ./so_long)
+==901==    by 0x100001319: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 4
+==901==    at 0x100000FA5: ft_wall (in ./so_long)
+==901==    by 0x100001319: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda8 is 16 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 1
+==901==    at 0x100000FA8: ft_wall (in ./so_long)
+==901==    by 0x100001319: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3af6a8 is 0 bytes after a block of size 440 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100013AE3: ft_strjoin (in ./so_long)
+==901==    by 0x100000E4A: ft_read_map (in ./so_long)
+==901==    by 0x10000129C: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 4
+==901==    at 0x10000131A: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aedac is 20 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 4
+==901==    at 0x100001104: ft_validate (in ./so_long)
+==901==    by 0x100001325: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aed98 is 0 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 4
+==901==    at 0x10000110A: ft_validate (in ./so_long)
+==901==    by 0x100001325: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda0 is 8 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 4
+==901==    at 0x100001110: ft_validate (in ./so_long)
+==901==    by 0x100001325: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aed9c is 4 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 4
+==901==    at 0x100001116: ft_validate (in ./so_long)
+==901==    by 0x100001325: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aeda4 is 12 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid read of size 4
+==901==    at 0x100001158: ft_validate (in ./so_long)
+==901==    by 0x100001325: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aedac is 20 bytes after a block of size 8 alloc'd
+==901==    at 0x10014C545: malloc (in /Users/fbouchar/.brew/Cellar/valgrind/HEAD-ee485f9/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==901==    by 0x100001262: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901== 
+==901== Invalid write of size 8
+==901==    at 0x100001333: ft_parsing (in ./so_long)
+==901==    by 0x100001083: main (in ./so_long)
+==901==  Address 0x10f3aedb0 is 16 bytes after a block of size 16 in arena "client"
+==901== 
+--901-- UNKNOWN mach_msg unhandled MACH_SEND_TRAILER option
+--901-- UNKNOWN mach_msg unhandled MACH_SEND_TRAILER option (repeated 2 times)
+UNKNOWN workq_ops option 1024
+--901-- UNKNOWN mach_msg unhandled MACH_SEND_TRAILER option (repeated 4 times)
