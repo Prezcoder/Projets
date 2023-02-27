@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:53:48 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/22 15:21:41 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:22:10 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@
 # include <unistd.h>
 // # include "../MLX42/include/MLX42/MLX42.h"
 
+typedef struct s_flood
+{
+	char	**map;
+	int		collect;
+	int		exit;
+}	t_flood;
+
 typedef struct s_map
 {
 	int			column;
@@ -36,20 +43,23 @@ typedef struct s_map
 	int			c;
 	int			e;
 	int			rectangle;
-	int			all_char;
+	int			wrong_char;
 	int			wall;
+	int			valid;
 	char		**map;
+	t_flood		flood;
 }	t_map;
 
-t_map		*ft_read_map(char *map_path, t_map *ms);
-t_map		*count_objects(t_map *ms);
-t_map		*get_ms(void);
+void		get_ms(t_map *ms);
+void		ft_read_map(char *path, t_map *ms);
+void		count_objects(t_map *ms);
 void		free_ms(t_map *ms);
-int			map_is_rec(t_map *ms);
+void		map_is_rec(t_map *ms);
 int			ft_column(char *file);
-int  		ft_wall(char *file);
+void  		ft_wall(t_map *ms);
 int			ft_validate(t_map *ms);
-t_map		*ft_parsing(char *argv[1]);
-int			map_lines(char *path);
+void		ft_parsing(char *path, t_map *ms);
+t_map		*map_lines(char *path, t_map *ms);
+void		ft_flood_cpy(t_map *ms);
 
 #endif
