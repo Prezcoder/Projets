@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 08:38:49 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/28 10:02:49 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:04:06 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_validate(t_map *ms)
 	if (ms->wall == 1)
 		return (ft_printf("Error\nThe map isn't framed by walls.\n"));
 	if (ms->wrong_char > 0)
-		return (ft_printf("Error\nOne or more wrong characters have been found.\n"));
+		return (ft_printf("Error\nWrong characters have been found.\n"));
 	else
 	{
 		ms->valid = 0;

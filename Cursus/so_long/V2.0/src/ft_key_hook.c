@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_key_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 13:42:03 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/28 15:07:29 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/02/28 14:26:54 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/02/28 15:27:29 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
+#include "so_long.h"
 
-int	main(void)
-{
-	int	fd;
-
-	fd = open("text.txt", O_RDONLY);
-	if (fd == -1)
-		return (1);
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	close(fd);
-}
+// void	ft_key_hook(t_map *ms)
+// {
+	// mlx_key_hook(ms->mlx, &ft_key_hook, param);
+// }

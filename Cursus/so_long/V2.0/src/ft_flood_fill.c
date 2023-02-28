@@ -6,13 +6,13 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:25:49 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/28 10:52:42 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:28:58 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_flood(t_map *ms)
+void	ft_flood(t_map *ms)
 {
 	if (ms->valid == 0)
 	{
@@ -23,6 +23,7 @@ void ft_flood(t_map *ms)
 		if (ms->flood.exit != ms->e)
 			ft_printf("Error\nThe exit can't be reached.\n");
 	}
+	ft_freeall(ms->flood.map);
 }
 
 void	ft_flood_cpy(t_map *ms)
@@ -39,15 +40,15 @@ void	ft_flood_cpy(t_map *ms)
 	}
 }
 
-void flood_fill(int y, int x, t_map *ms)
+void	flood_fill(int y, int x, t_map *ms)
 {
 	if (x < 0 || x > ms->column - 1 || y < 0 || y > ms->row - 1)
 		return ;
 	if (ms->flood.map[y][x] == 'X' || ms->flood.map[y][x] == '1')
 		return ;
-	if (ms->flood.map[y][x] == 'C') 
+	if (ms->flood.map[y][x] == 'C')
 		ms->flood.collect++;
-	if (ms->flood.map[y][x] == 'E') 
+	if (ms->flood.map[y][x] == 'E')
 		ms->flood.exit++;
 	ms->flood.map[y][x] = 'X';
 	flood_fill(y + 1, x, ms);

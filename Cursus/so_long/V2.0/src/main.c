@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/28 10:50:05 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:27:51 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ void	get_ms(t_map *ms)
 	ms->flood.collect = 0;
 	ms->player.x = 0;
 	ms->player.y = 0;
+	ms->mlx = 0;
+	ms->img = 0;
+	ms->texture.wall = 0;
+	ms->texture.floor = 0;
+	ms->texture.player = 0;
+	ms->texture.exit = 0;
+	ms->texture.collect = 0;
 }
 
 int	main(int argc, char **argv)
@@ -49,6 +56,8 @@ int	main(int argc, char **argv)
 		return (0);
 	get_ms(ms);
 	ft_parsing(argv[1], ms);
+	ft_render(ms);
+	ft_key_hook(ms);
 	ft_printf("Personnage :%d\n", ms->p);
 	ft_printf("Exit :%d\n", ms->e);
 	ft_printf("Collectibles :%d\n", ms->c);
@@ -60,7 +69,6 @@ int	main(int argc, char **argv)
 	ft_printf("Flood collect :%d\n", ms->flood.collect);
 	ft_printf("Flood exit :%d\n", ms->flood.exit);
 	ft_freeall(ms->map);
-	ft_freeall(ms->flood.map);
 	free_ms(ms);
 	return (0);
 }

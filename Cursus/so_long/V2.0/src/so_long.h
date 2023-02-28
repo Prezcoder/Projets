@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:53:48 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/28 09:56:43 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:28:10 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
-// # include "../MLX42/include/MLX42/MLX42.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 
 typedef struct s_player
 {
@@ -41,6 +41,15 @@ typedef struct s_flood
 	int		exit;
 }	t_flood;
 
+typedef struct s_texture
+{
+	mlx_texture_t	*wall;
+	mlx_texture_t	*floor;
+	mlx_texture_t	*player;
+	mlx_texture_t	*exit;
+	mlx_texture_t	*collect;
+}	t_texture;
+
 typedef struct s_map
 {
 	int			column;
@@ -53,8 +62,12 @@ typedef struct s_map
 	int			wall;
 	int			valid;
 	char		**map;
+	mlx_t		*mlx;
+	mlx_image_t	*img;
 	t_flood		flood;
 	t_player	player;
+	t_texture	texture;
+
 }	t_map;
 
 void		get_ms(t_map *ms);
@@ -71,5 +84,10 @@ void		ft_flood(t_map *ms);
 void		ft_flood_cpy(t_map *ms);
 void		flood_fill(int y, int x, t_map *ms);
 void		ft_count(t_map *ms, int x, int y);
+void		ft_render(t_map *ms);
+void		ft_load_texture(t_map *ms);
+void		ft_free_texture(t_map *ms);
+void		ft_make_map(t_map *ms);
+void		ft_key_hook(t_map *ms);
 
 #endif
