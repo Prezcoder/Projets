@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:52:45 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/27 15:23:12 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/28 09:35:37 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_map	*map_lines(char *path, t_map *ms)
 	{
 		str = get_next_line(fd);
 		if (str == NULL)
-			break;
+			break ;
 		free(str);
 		ms->row++;
 	}
@@ -30,21 +30,38 @@ t_map	*map_lines(char *path, t_map *ms)
 	return (ms);
 }
 
-void  ft_wall(t_map *ms)
+void	map_is_rec(t_map *ms)
 {
-	int y;
-	int x;
-	
+	int	y;
+	int	x;
+
+	y = 0;
+	while (ms->map[y])
+	{
+		x = 0;
+		while (ms->map[y][x])
+			x++;
+		if (x != ms->column)
+			ms->rectangle = 1;
+		y++;
+	}
+}
+
+void	ft_wall(t_map *ms)
+{
+	int	y;
+	int	x;
+
 	y = 0;
 	while (ms->map[y])
 	{
 		x = 0;
 		while (ms->map[y][x])
 		{
-			if(ms->map[0][x] != '1' || ms->map[y][0] != '1' ||
-       		ms->map[ms->row - 1][x] != '1' ||
-        	ms->map[y][ms->column - 1] != '1')
-        	ms->wall = 1;
+			if (ms->map[0][x] != '1' || ms->map[y][0] != '1' ||
+			ms->map[ms->row - 1][x] != '1' ||
+			ms->map[y][ms->column - 1] != '1')
+			ms->wall = 1;
 			x++;
 		}
 		y++;

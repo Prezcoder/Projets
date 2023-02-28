@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:53:48 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/27 15:22:10 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/02/28 09:56:43 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@
 # include <unistd.h>
 // # include "../MLX42/include/MLX42/MLX42.h"
 
+typedef struct s_player
+{
+	int	x;
+	int	y;
+}	t_player;
+
 typedef struct s_flood
 {
 	char	**map;
@@ -48,6 +54,7 @@ typedef struct s_map
 	int			valid;
 	char		**map;
 	t_flood		flood;
+	t_player	player;
 }	t_map;
 
 void		get_ms(t_map *ms);
@@ -56,10 +63,13 @@ void		count_objects(t_map *ms);
 void		free_ms(t_map *ms);
 void		map_is_rec(t_map *ms);
 int			ft_column(char *file);
-void  		ft_wall(t_map *ms);
+void		ft_wall(t_map *ms);
 int			ft_validate(t_map *ms);
 void		ft_parsing(char *path, t_map *ms);
 t_map		*map_lines(char *path, t_map *ms);
+void		ft_flood(t_map *ms);
 void		ft_flood_cpy(t_map *ms);
+void		flood_fill(int y, int x, t_map *ms);
+void		ft_count(t_map *ms, int x, int y);
 
 #endif
