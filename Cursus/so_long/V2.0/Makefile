@@ -10,6 +10,8 @@ SRCS	:=./src/ft_parsing.c \
 			./src/ft_flood_fill.c \
 			./src/ft_render.c \
 			./src/ft_key_hook.c \
+			./src/ft_movement.c \
+			./src/ft_load_image.c \
 			
 OBJS	:= ${SRCS:.c=.o}
 LIBFT	:= ./libft/libft.a

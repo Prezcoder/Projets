@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/28 15:27:51 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:18:01 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,14 @@ void	get_ms(t_map *ms)
 	ms->wall = 0;
 	ms->valid = 0;
 	ms->map = NULL;
+	ms->move_count = 0;
 	ms->flood.map = NULL;
 	ms->flood.exit = 0;
 	ms->flood.collect = 0;
 	ms->player.x = 0;
 	ms->player.y = 0;
 	ms->mlx = 0;
-	ms->img = 0;
-	ms->texture.wall = 0;
-	ms->texture.floor = 0;
-	ms->texture.player = 0;
-	ms->texture.exit = 0;
-	ms->texture.collect = 0;
+	ms->direction = 'N';
 }
 
 int	main(int argc, char **argv)
@@ -57,17 +53,9 @@ int	main(int argc, char **argv)
 	get_ms(ms);
 	ft_parsing(argv[1], ms);
 	ft_render(ms);
-	ft_key_hook(ms);
-	ft_printf("Personnage :%d\n", ms->p);
-	ft_printf("Exit :%d\n", ms->e);
-	ft_printf("Collectibles :%d\n", ms->c);
-	ft_printf("Wrong Char :%d\n", ms->wrong_char);
-	ft_printf("Colonnes :%d\n", ms->column);
-	ft_printf("Lignes :%d\n", ms->row);
-	ft_printf("Rectangle :%d\n", ms->rectangle);
-	ft_printf("Walled :%d\n", ms->wall);
-	ft_printf("Flood collect :%d\n", ms->flood.collect);
-	ft_printf("Flood exit :%d\n", ms->flood.exit);
+	mlx_terminate(ms->mlx);
+	ft_printf("%s", "Closing...\n");
+	ft_printf("%s", "Have a nice day!\n");
 	ft_freeall(ms->map);
 	free_ms(ms);
 	return (0);
