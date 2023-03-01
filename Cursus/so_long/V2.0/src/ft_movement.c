@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 08:38:51 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/03/01 15:04:14 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:53:35 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,17 @@ int	ft_check_for_c_and_e(t_map *ms, char c)
 	{
 		ms->c--;
 		if (ms->c == 0)
-			ft_printf("Yeah! You got them-all!\n");
+			ft_printf("Yeah! That's a neet job!\n");
 	}
 	else if (c == 'E' && ms->c != 0)
 	{
-		ft_printf("Get those bastards!\n");
+		ft_printf("Not done yet!\n");
 		return (1);
 	}
 	else if (c == 'E' && ms->c == 0)
 	{
 		mlx_close_window(ms->mlx);
-		ft_printf("You made it alive in %d moves!\n", ms->move_count);
+		ft_printf("You made it in %d moves!\n", ms->move_count);
 		ft_delete_image(ms);
 	}
 	return (0);

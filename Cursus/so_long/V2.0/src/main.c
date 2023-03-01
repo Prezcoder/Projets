@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/03/01 15:18:01 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:54:37 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 	ft_render(ms);
 	mlx_terminate(ms->mlx);
 	ft_printf("%s", "Closing...\n");
-	ft_printf("%s", "Have a nice day!\n");
+	ft_printf("%s", "Have a nice day and thanks for playing!\n");
 	ft_freeall(ms->map);
 	free_ms(ms);
 	return (0);
