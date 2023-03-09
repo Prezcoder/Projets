@@ -88,7 +88,7 @@ void	ft_read_map(char *path, t_map *ms)
 	if (!ms->map)
 		return ;
 	fd = open (path, O_RDONLY);
-	while (1)
+	while (fd > 2)
 	{
 		ms->map[y] = get_next_line(fd);
 		if (ms->map[y] == NULL)
@@ -99,6 +99,8 @@ void	ft_read_map(char *path, t_map *ms)
 			ms->map[y][ft_strlen(ms->map[y]) - 1] = '\0';
 		y++;
 	}
+	if (fd < 3)
+		exit (ft_printf("Error\nWrong file.\n"));
 	close (fd);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:25:49 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/03/06 13:11:52 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/03/09 12:34:47 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_flood(t_map *ms)
 		ft_flood_cpy(ms);
 		flood_fill(ms->player.y, ms->player.x, ms);
 		if (ms->c != ms->flood.collect)
-			ft_printf("Error\nSome collectibles can't be reached.\n");
+			exit (ft_printf("Error\nSome collectibles can't be reached.\n"));
 		if (ms->flood.exit != ms->e)
-			ft_printf("Error\nThe exit can't be reached.\n");
+			exit (ft_printf("Error\nThe exit can't be reached.\n"));
 	}
 	ft_freeall(ms->flood.map);
 }

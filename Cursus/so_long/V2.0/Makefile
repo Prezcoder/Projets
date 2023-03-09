@@ -17,19 +17,21 @@ SRCS	:=./src/ft_parsing.c \
 OBJS	:= ${SRCS:.c=.o}
 LIBFT	:= ./libft/libft.a
 
-all: $(NAME)
+all: libmlx makelibft $(NAME)
 
 run : all
-	./so_long ./map/map.ber
+	./so_long ./map/map00.ber
 
 libmlx: 
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+
+makelibft:
+	@$(MAKE) -C ./libft
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
 
 $(NAME): $(OBJS)
-	@$(MAKE) -C ./libft
 	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
 
 debug: $(NAME)
