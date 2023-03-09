@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:26:54 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/03/01 14:07:01 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/03/06 10:51:41 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ void	ft_key_hook(mlx_key_data_t keydata, void *param)
 			ft_printf("%s", "Have a good day!\n");
 			mlx_close_window(ms->mlx);
 		}	
-		ft_make_map(ms);
 	}
 }

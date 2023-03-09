@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:25:49 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/02/28 11:28:58 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/03/06 13:11:52 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	flood_fill(int y, int x, t_map *ms)
 {
 	if (x < 0 || x > ms->column - 1 || y < 0 || y > ms->row - 1)
 		return ;
-	if (ms->flood.map[y][x] == 'X' || ms->flood.map[y][x] == '1')
+	if (ms->flood.map[y][x] == 'Z' || ms->flood.map[y][x] == '1')
 		return ;
 	if (ms->flood.map[y][x] == 'C')
 		ms->flood.collect++;
 	if (ms->flood.map[y][x] == 'E')
 		ms->flood.exit++;
-	ms->flood.map[y][x] = 'X';
+	ms->flood.map[y][x] = 'Z';
 	flood_fill(y + 1, x, ms);
 	flood_fill(y - 1, x, ms);
 	flood_fill(y, x - 1, ms);

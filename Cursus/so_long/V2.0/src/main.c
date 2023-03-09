@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:47:50 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/03/01 15:54:37 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:26:47 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	get_ms(t_map *ms)
 	ms->column = 0;
 	ms->row = 0;
 	ms->p = 0;
+	ms->x = 0;
 	ms->c = 0;
 	ms->e = 0;
 	ms->rectangle = 0;
@@ -35,8 +36,14 @@ void	get_ms(t_map *ms)
 	ms->flood.collect = 0;
 	ms->player.x = 0;
 	ms->player.y = 0;
-	ms->mlx = 0;
+	ms->player.xx = 0;
+	ms->player.xy = 0;
+	ms->vi = 0;
 	ms->direction = 'N';
+	ms->image.move_nbr = 0;
+	ms->image.collected_nbr = 0;
+	ms->image.move = 0;
+	ms->cowcount = 0;
 }
 
 int	main(int argc, char **argv)

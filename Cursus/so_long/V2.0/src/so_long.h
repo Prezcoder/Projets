@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:53:48 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/03/01 15:14:13 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/03/09 08:40:42 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 
 # define IS 64
 
-# define WALL "./images/bricksx64.png"
-# define FLOOR "./images/Drain_Cover_64.png"
-# define PLAYERN "./images/zorn1_64-1.png"
-# define PLAYERS "./images/zorn1_64-2.png"
-# define PLAYERE "./images/zorn1_64-3.png"
-# define PLAYERO "./images/zorn1_64-4.png"
-# define COLLECT "./images/alan1_64.png"
-# define EXIT "./images/Floor_Glass_64x64.png"
+# define WALL "./images/Mur1.png"
+# define FLOOR "./images/Sol2.png"
+# define FLOOR2 "./images/Sol1.png"
+# define PLAYERN "./images/Joueur1.png"
+# define PLAYERS "./images/Joueur3.png"
+# define PLAYERE "./images/Joueur2.png"
+# define PLAYERO "./images/Joueur4.png"
+# define COLLECT "./images/Foin1.png"
+# define EXIT "./images/Exit1.png"
+# define EXIT2 "./images/Exit2.png"
+# define VACHE1 "./images/Vache1.png"
+# define VACHE2 "./images/Vache2.png"
+# define VACHE3 "./images/Vache3.png"
+# define VACHE4 "./images/Vache4.png"
 
 # include "../libft/libft.h"
 # include <stdio.h>
@@ -35,6 +41,8 @@ typedef struct s_player
 {
 	int	x;
 	int	y;
+	int	xx;
+	int	xy;
 }	t_player;
 
 typedef struct s_flood
@@ -48,11 +56,14 @@ typedef struct s_texture
 {
 	mlx_texture_t	*wall;
 	mlx_texture_t	*floor;
+	mlx_texture_t	*floor2;
 	mlx_texture_t	*playern;
 	mlx_texture_t	*players;
 	mlx_texture_t	*playere;
 	mlx_texture_t	*playero;
+	mlx_texture_t	*cow[5];
 	mlx_texture_t	*exit;
+	mlx_texture_t	*exit2;
 	mlx_texture_t	*collect;
 }	t_texture;
 
@@ -60,12 +71,19 @@ typedef struct s_image
 {
 	mlx_image_t	*wall;
 	mlx_image_t	*floor;
+	mlx_image_t	*floor2;
 	mlx_image_t	*playern;
 	mlx_image_t	*players;
 	mlx_image_t	*playere;
 	mlx_image_t	*playero;
+	mlx_image_t	*cow;
 	mlx_image_t	*exit;
+	mlx_image_t	*exit2;
 	mlx_image_t	*collect;
+	mlx_image_t	*move_nbr;
+	mlx_image_t	*collected_nbr;
+	mlx_image_t	*move;
+	mlx_image_t	*hay;
 }	t_image;
 
 typedef struct s_map
@@ -73,8 +91,11 @@ typedef struct s_map
 	int			column;
 	int			row;
 	int			p;
+	int			x;
 	int			c;
 	int			e;
+	int			vi;
+	int			cowcount;
 	int			rectangle;
 	int			wrong_char;
 	int			wall;
@@ -88,7 +109,7 @@ typedef struct s_map
 	t_player	player;
 	t_texture	texture;
 	t_image		image;
-
+	t_image		old_image;
 }	t_map;
 
 void		get_ms(t_map *ms);
@@ -114,9 +135,11 @@ void		ft_down(t_map *ms);
 void		ft_right(t_map *ms);
 void		ft_left(t_map *ms);
 int			ft_check_for_c_and_e(t_map *ms, char c);
-void		hook(void *param);
-void		ft_delete_image(t_map *ms);
+void		ft_delete_image_old(t_map *ms);
 void		ft_create_image(t_map *ms);
 mlx_image_t	*ft_load_image(char c, t_map *ms);
+void		ft_print_moves(t_map *ms);
+void		ft_print_collected_c(t_map *ms);
+void		ft_print_moves_and_collect(t_map *ms);
 
 #endif

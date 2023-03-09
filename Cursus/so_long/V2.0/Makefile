@@ -12,6 +12,7 @@ SRCS	:=./src/ft_parsing.c \
 			./src/ft_key_hook.c \
 			./src/ft_movement.c \
 			./src/ft_load_image.c \
+			./src/ft_message.c \
 			
 OBJS	:= ${SRCS:.c=.o}
 LIBFT	:= ./libft/libft.a
