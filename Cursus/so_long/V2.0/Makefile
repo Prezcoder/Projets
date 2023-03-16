@@ -20,7 +20,7 @@ LIBFT	:= ./libft/libft.a
 all: libmlx makelibft $(NAME)
 
 run : all
-	./so_long ./map/map00.ber
+	./so_long ./map/map.ber
 
 libmlx: 
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
