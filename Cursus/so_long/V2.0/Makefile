@@ -1,7 +1,7 @@
 NAME	:= so_long
-CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
+CFLAGS	:= -Wextra -Wall -Werror
 LIBMLX	:= ./MLX42
-
+CC := gcc
 HEADERS	:= -I ./include -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
 SRCS	:=./src/ft_parsing.c \
@@ -32,7 +32,7 @@ makelibft:
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
+	@$(CC) $(OBJS) $(CFLAGS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
 
 debug: $(NAME)
 	@$(CC) -g $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
@@ -47,4 +47,4 @@ fclean: clean
 
 re: clean all
 
-.PHONY: all, clean, fclean, re, libmlx
+.PHONY: all clean fclean re libmlx
