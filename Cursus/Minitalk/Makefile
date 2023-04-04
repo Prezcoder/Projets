@@ -1,24 +1,27 @@
 CFLAGS	:= -Wextra -Wall -Werror
 CC := gcc
-SRCS_CLIENT :=./src_client/client.c \
-				./src_client/ft_atoi.c \
+SRCS_CLIENT :=  ./src/client.c \
+				./src/minitalk_utils.c \
 
 OBJS_CLIENT := ${SRCS_CLIENT:.c=.o}
-SRCS_SERVER :=./src_server/server.c \
-				./src_server/ft_putnbr_fd.c \
-				./src_server/ft_putchar_fd.c \
-				./src_server/ft_putstr_fd.c \
+SRCS_SERVER :=  ./src/server.c \
+				./src/minitalk_utils.c
 
 OBJS_SERVER := ${SRCS_SERVER:.c=.o}	
-OBJS	:= ${SRCS:.c=.o}
+OBJS	:= ${SRCS_CLIENT:.c=.o} ${SRCS_SERVER:.c=.o}	
 
-all: server client
+SERVER = server
+CLIENT = client
 
-client: $(OBJS_CLIENT)
-	@$(CC) $(CFLAGS) $(OBJS_CLIENT) -o client
+all: $(SERVER) $(CLIENT)
 
-server: $(OBJS_SERVER)
-	@$(CC) $(CFLAGS) $(OBJS_SERVER) -o server
+$(NAME) :
+
+$(CLIENT): $(OBJS_CLIENT)
+	@$(CC) $(CFLAGS) $(OBJS_CLIENT) -o $(CLIENT)
+
+$(SERVER): $(OBJS_SERVER)
+	@$(CC) $(CFLAGS) $(OBJS_SERVER) -o $(SERVER)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $< && printf "Compiling: $(notdir $<)"
@@ -27,12 +30,14 @@ debug: $(NAME)
 	@$(CC) -g $(OBJS) -o $(NAME)
 
 clean:
-	@rm -f $(OBJS_CLIENT) $(OBJS_SERVEUR)
+	@rm -f $(OBJS_CLIENT) $(OBJS_SERVER)
 	
 fclean: clean
-	@rm -f client
-	@rm -f server
+	@rm -f $(CLIENT)
+	@rm -f $(SERVER)
+
+bonus: all
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean bonus re

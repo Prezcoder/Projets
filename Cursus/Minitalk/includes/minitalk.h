@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 11:06:35 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/03/21 09:33:50 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/03/20 09:23:45 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/04/04 14:16:59 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-void	ft_putnbr_fd(int n, int fd)
+# include <stdlib.h>
+# include <signal.h>
+# include <unistd.h>
+
+typedef struct s_server
 {
-	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd);
-	else if (n >= 0 && n < 10)
-		ft_putchar_fd(n + '0', fd);
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(n * (-1), fd);
-	}
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-}
+	int		letter;
+	int		bytes;
+	int		n;
+	int		length;
+	int		client;
+	char	*words;
+}	t_server;
+
+void	ft_putstr(char *s);
+void	ft_putnbr(int n);
+int		ft_atoi(const char *str);
+int		ft_strlen(char *str);
+
+#endif

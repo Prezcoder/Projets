@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 10:59:03 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/03/21 15:17:37 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/03/23 09:33:11 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/03/23 09:51:22 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#include <unistd.h>
 
-void	ft_putstr_fd(char *s, int fd)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	(void)fd;
-	while (*s)
-		write(1, s++, 1);
+	size_t	i;
+	int	tab[256] = {0};
+	
+
+	i = 0;
+	while (reject[i])
+		tab[(int)reject[i++]] = 1;
+	i = 0;
+	while (s[i])
+	{		
+		if (tab[(int)s[i]] == 1)
+			return (i);
+		else
+			i++;
+	}
+	return (i);
 }

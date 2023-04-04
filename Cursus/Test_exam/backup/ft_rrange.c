@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_rrange.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 07:45:38 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/03/21 11:25:38 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/03/27 12:11:13 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/03/27 12:43:49 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#include <stdlib.h>
 
-int	ft_atoi(const char *str)
+int     *ft_rrange(int start, int end)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int l;
+	int i;
+	int *tab;
 
+	l = 0;
 	i = 0;
-	result = 0;
-	sign = 1;
-	if (!str)
-		return (0);
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
+	if (start > end)
+	{	
+		l = start - end + 1;	
+		tab = malloc(sizeof(int) * l + 1);
+		while(l--)
+			tab[i++] = end++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
+	else
+	{	
+		l = end - start + 1;
+		tab = malloc(sizeof(int) * l + 1);
+		while (l--)
+			tab[i++] = end--;
 	}
-	return (result * sign);
+	tab[i] = '\0';
+	return (tab);
 }
+

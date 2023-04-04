@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   first_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 09:23:45 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/03/21 09:31:30 by fbouchar         ###   ########.fr       */
+/*   Created: 2023/03/27 10:36:55 by fbouchar          #+#    #+#             */
+/*   Updated: 2023/03/27 10:42:55 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include <unistd.h>
 
-# include <stdlib.h>
-# include <signal.h>
-# include "../libft/libft.h"
-# include <unistd.h>
+int	main(int argc, char **argv)
+{
+	int i;
 
-
-#endif
+	i = 0;
+	if (argc == 2)
+	{
+		while (argv[1][i] && argv[1][i] <= 32)
+			i++;
+		while (argv[1][i] >= 33 && argv[1][i] <= 126)
+			write(1, &argv[1][i++], 1);
+	}
+	write(1, "\n", 1);
+}
