@@ -69,9 +69,12 @@ static void	ft_reform(int sig, t_server *data)
 static void	ft_handler(int signum, siginfo_t *info, void *ucontent)
 {
 	t_server	*data;
+	static int	previous_pid = 0;
 
 	(void)ucontent;
 	data = ft_init();
+	if (!info->si_pid)
+		info->si_pid = previous_pid;
 	if (data->client != info->si_pid)
 	{	
 		if (data->client != 0)
@@ -89,6 +92,7 @@ static void	ft_handler(int signum, siginfo_t *info, void *ucontent)
 		ft_reform(0, data);
 	else
 		ft_reform(1, data);
+	previous_pid = info->si_pid;
 }
 
 int	main(void)
