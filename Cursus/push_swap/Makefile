@@ -4,7 +4,12 @@ CC := gcc
 S = ./src/
 O = ./obj/
 LIBFT = ./includes/libft/libft.a
-SRC = push_swap.c \
+SRC = 	push_swap.c \
+		ft_parsing.c \
+		ft_make_list.c \
+		ft_instruct.c \
+		ft_algo.c \
+		ft_actions.c \
 
 OBJ = $(SRC:%.c=%.o)
 OBJ := $(OBJ:%=$O%)
