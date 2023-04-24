@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 12:43:30 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/04/18 14:12:54 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/04/20 10:19:42 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ void ft_count_n_found(t_data *data)
 	while (temp != NULL)
 	{
 		data->count++;
-		if (data->low > temp->number)
-			data->low = temp->number;
-		if (data->high < temp->number)
-			data->high = temp->number;
+		if (data->low_a > temp->number)
+			data->low_a = temp->number;
+		if (data->high_a < temp->number)
+			data->high_a = temp->number;
 		temp = temp->next;
 	}
 	if (data->count == 1)
 		ft_error_n_out(data, 1);
 }
 
-int	ft_checksort(t_data *data)
+int	ft_checksort(t_data *data, int i)
 {
 	t_stack	*temp;
 
@@ -43,7 +43,25 @@ int	ft_checksort(t_data *data)
 			return (0);
 		temp = temp->next;
 	}
-	ft_error_n_out(data, 1);
+	if (i == 1)
+		ft_error_n_out(data, 1);
+	return (1);
+}
+
+int	ft_checksort_b(t_data *data, int i)
+{
+	t_stack	*temp;
+
+	temp = NULL;
+	temp = data->b;
+	while (temp->next != NULL)
+	{	
+		if (temp->number > temp->next->number)
+			return (0);
+		temp = temp->next;
+	}
+	if (i == 1)
+		ft_error_n_out(data, 1);
 	return (1);
 }
 

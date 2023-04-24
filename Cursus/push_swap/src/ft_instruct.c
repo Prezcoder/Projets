@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:22:33 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/04/18 12:48:33 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:34:46 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_push_a(t_data *data)
 	data->b->next = data->a;
 	data->a = data->b;
 	data->b = temp;
+	ft_printf("pa\n");
 }
 
 void	ft_push_b(t_data *data)
@@ -36,6 +37,7 @@ void	ft_push_b(t_data *data)
 	data->a->next = data->b;
 	data->b = data->a;
 	data->a = temp;
+	ft_printf("pb\n");
 }
 
 t_stack	*ft_rotate(t_stack *stack)

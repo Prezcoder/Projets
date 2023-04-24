@@ -6,37 +6,57 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 12:47:15 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/04/19 09:28:00 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/04/20 12:04:09 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_iter_list(t_data *data)
+void	ft_iter_a(t_data *data)
 {
 	int		i;
 	t_stack	*temp;
 	
 	i = 0;
+	data->low_a = INT_MAX;
+	data->high_a = INT_MIN;
 	temp = data->a;
 	while (temp != NULL)
 	{
-		if (temp->number == data->high)
+		if (temp->number == data->high_a)
 			data->to_last = i;
 		i++;
+		if (data->low_a > temp->number)
+			data->low_a = temp->number;
+		if (data->high_a < temp->number)
+			data->high_a = temp->number;
 		// ft_printf("List A:%i", temp->number);
 		data->last = temp->number;
 		temp = temp->next;
 	}
-	
 }
 
-void	ft_iter_listb(t_data *data)
+void	ft_iter_b(t_data *data)
 {
-	while (data->b)
+	int		i;
+	t_stack	*temp;
+	
+	i = 0;
+	data->low_b = INT_MAX;
+	data->high_b = INT_MIN;
+	temp = data->b;
+	while (temp != NULL)
 	{
-		ft_printf("List B:%i", data->b->number);
-		data->b = data->b->next;
+		if (temp->number == data->high_b)
+			data->to_last = i;
+		i++;
+		if (data->low_b > temp->number)
+			data->low_b = temp->number;
+		if (data->high_b < temp->number)
+			data->high_b = temp->number;
+		// ft_printf("List b:%i", temp->number);
+		data->lastb = temp->number;
+		temp = temp->next;
 	}
 }
 
