@@ -6,11 +6,38 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:13:44 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/04/19 09:39:09 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/04/26 12:55:26 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_indexation(t_data *data)
+{
+	int		i;
+	int		nb;
+	t_stack	*temp;
+
+	temp = data->a;
+	i = 1;
+	nb = INT_MAX;
+	while (i <= data->count)
+	{
+		while (temp != NULL)
+		{
+			if (nb > temp->number && temp->index == 0)
+				nb = temp->number;
+			temp = temp->next;
+		}
+		temp = data->a;
+		while (temp->number != nb)
+			temp = temp->next;
+		temp->index = i;
+		temp = data->a;
+		nb = INT_MAX;
+		i++;
+	}
+}
 
 void	ft_stack_swap(t_data *data, char stack)
 {

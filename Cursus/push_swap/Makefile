@@ -1,5 +1,5 @@
 NAME = push_swap
-CFLAGS = -Wextra -Wall -Werror
+CFLAGS = -Wextra -Wall -Werror -g -O0
 CC := gcc
 S = ./src/
 O = ./obj/
