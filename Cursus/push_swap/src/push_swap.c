@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:22:47 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/05/02 09:27:55 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/05/02 12:49:33 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,17 @@ void	ft_init_data(t_data *data)
 	data->b = NULL;
 	data->flag = 0;
 	data->count = 0;
+	data->counta = 0;
 	data->mid = 0;
 	data->min = 0;
 	data->max = 0;
 	data->range = 0;
-	data->nxt = 0;
 	data->done = 0;
-	data->counta = 0;
-	data->countb = 0;
+	data->spot = 0;
 	data->last = 0;
-	data->lastb = 0;
 	data->low_a = INT_MAX;
 	data->high_a = INT_MIN;
-	data->low_b = INT_MAX;
 	data->high_b = INT_MIN;
-	data->high_b2 = INT_MIN;
 }
 
 void	ft_make_split(char *arg, t_data *data)
@@ -46,11 +42,19 @@ void	ft_make_split(char *arg, t_data *data)
 	ft_count_n_found(data);
 	ft_checksort(data, 1);
 	ft_indexation(data);
-	ft_sort(data, 4);
-	ft_sort(data, 2);
-		if (data->count % 2 != 0)
+	if (data->count % 2 == 0)
+	{	
+		ft_sort(data, 6);
+		ft_sort(data, 3);
+		ft_sort(data, 2);
+	}
+	else if (data->count % 2 != 0)
+	{	
+		ft_sort(data, 4);
+		ft_sort(data, 2);
 		ft_push_b(data);
-	ft_merge(data, 4);
+	}
+	ft_merge(data);
 	ft_error_n_out(data, 1);
 }
 
@@ -62,14 +66,19 @@ void	ft_make_arg(t_data *data)
 	ft_count_n_found(data);
 	ft_checksort(data, 1);
 	ft_indexation(data);
-	// ft_sort(data, 24);
-	ft_sort(data, 6);
-	// ft_sort(data, 4);
-	ft_sort(data, 3);
-	ft_sort(data, 2);
-	if (data->count % 2 != 0)
+	if (data->count % 2 == 0)
+	{	
+		ft_sort(data, 6);
+		ft_sort(data, 3);
+		ft_sort(data, 2);
+	}
+	else if (data->count % 2 != 0)
+	{	
+		ft_sort(data, 4);
+		ft_sort(data, 2);
 		ft_push_b(data);
-	ft_merge(data, 4);
+	}
+	ft_merge(data);
 	ft_error_n_out(data, 1);
 }
 

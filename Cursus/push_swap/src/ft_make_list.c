@@ -6,49 +6,18 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 12:47:15 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/05/02 08:37:32 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/05/02 13:16:56 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_count(t_data *data)
-{
-	int		i;
-	t_stack	*temp;
-
-	i = 0;
-	temp = data->a;
-	while (temp != NULL)
-	{	
-		temp = temp->next;
-		i++;
-	}
-	data->counta = i;
-}
-
-void	ft_countb(t_data *data)
-{
-	int		i;
-	t_stack	*temp;
-
-	i = 0;
-	temp = data->b;
-	while (temp != NULL)
-	{	
-		temp = temp->next;
-		i++;
-	}
-	data->countb = i;
-}
-
 void	ft_iter_a(t_data *data, int div)
 {
 	t_stack	*temp;
-	
+
 	data->low_a = INT_MAX;
 	data->high_a = INT_MIN;
-	ft_count(data);
 	temp = data->a;
 	while (temp != NULL)
 	{
@@ -59,20 +28,13 @@ void	ft_iter_a(t_data *data, int div)
 		if (data->high_a < temp->index)
 			data->high_a = temp->index;
 		data->last = temp->index;
-		// ft_printf("Number : %i", temp->number);
-		// ft_printf(" Index : %i\n", temp->index);
 		temp = temp->next;
 	}	
 	data->min = data->mid - (data->count / div);
 	data->max = data->mid + (data->count / div);
 	data->done = data->range;
 	data->range = data->max - data->min - data->done;
-	// ft_printf("MID :%i", data->mid);
-	// ft_printf("MIN :%i", data->min);
-	// ft_printf("MAX :%i", data->max);
-	// ft_printf("RANGE :%i", data->range);
 }
-
 
 void	ft_free_stack(t_stack *stack)
 {

@@ -6,13 +6,13 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 12:43:30 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/05/01 15:01:31 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/05/02 13:17:16 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void ft_count_n_found(t_data *data)
+void	ft_count_n_found(t_data *data)
 {
 	t_stack	*temp;
 

@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:22:33 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/05/01 13:49:09 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/05/02 13:15:09 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	ft_push_a(t_data *data)
 {
 	t_stack	*temp;
-	
+
 	temp = NULL;
 	if (!data->b)
-		return;
+		return ;
 	temp = data->b->next;
 	data->b->next = data->a;
 	data->a = data->b;
@@ -29,10 +29,10 @@ void	ft_push_a(t_data *data)
 void	ft_push_b(t_data *data)
 {
 	t_stack	*temp;
-	
+
 	temp = NULL;
 	if (!data->a)
-		return;
+		return ;
 	temp = data->a->next;
 	data->a->next = data->b;
 	data->b = data->a;
@@ -42,8 +42,8 @@ void	ft_push_b(t_data *data)
 
 t_stack	*ft_rotate(t_stack *stack)
 {
-	t_stack *temp;
-	
+	t_stack	*temp;
+
 	temp = NULL;
 	temp = stack;
 	if (temp->next == NULL)
@@ -59,7 +59,7 @@ t_stack	*ft_rotate(t_stack *stack)
 t_stack	*ft_rrotate(t_stack *stack)
 {
 	t_stack	*temp;
-	
+
 	temp = stack;
 	if (temp->next == NULL)
 		return (stack);
@@ -74,7 +74,7 @@ t_stack	*ft_rrotate(t_stack *stack)
 
 t_stack	*ft_swap(t_stack *stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = NULL;
 	temp = stack->next;
