@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 12:43:30 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/04/20 10:19:42 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/05/01 15:01:31 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,27 +48,13 @@ int	ft_checksort(t_data *data, int i)
 	return (1);
 }
 
-int	ft_checksort_b(t_data *data, int i)
-{
-	t_stack	*temp;
-
-	temp = NULL;
-	temp = data->b;
-	while (temp->next != NULL)
-	{	
-		if (temp->number > temp->next->number)
-			return (0);
-		temp = temp->next;
-	}
-	if (i == 1)
-		ft_error_n_out(data, 1);
-	return (1);
-}
-
 void	ft_error_n_out(t_data *data, int i)
 {
 	if (i == 0)
+	{	
 		ft_putendl_fd("Error", 2);
+		exit(EXIT_FAILURE);
+	}
 	if (data->a != NULL)
 		ft_free_stack(data->a);
 	if (data->a != NULL)
@@ -76,7 +62,6 @@ void	ft_error_n_out(t_data *data, int i)
 	if (data->flag == 1)
 		ft_freeall(data->arg);
 	free(data);
-	exit(EXIT_FAILURE);
 }
 
 void	ft_check_doubles(t_data *data, int i)

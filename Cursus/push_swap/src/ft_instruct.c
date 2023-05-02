@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:22:33 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/04/19 14:34:46 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/05/01 13:49:09 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_stack	*ft_rotate(t_stack *stack)
 	
 	temp = NULL;
 	temp = stack;
+	if (temp->next == NULL)
+		return (stack);
 	while (stack->next != NULL)
 		stack = stack->next;
 	stack->next = temp;
@@ -59,6 +61,8 @@ t_stack	*ft_rrotate(t_stack *stack)
 	t_stack	*temp;
 	
 	temp = stack;
+	if (temp->next == NULL)
+		return (stack);
 	while (stack->next->next != NULL)
 		stack = stack->next;
 	stack->next->next = temp;

@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:22:47 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/05/01 08:51:55 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/05/02 09:27:55 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_init_data(t_data *data)
 	data->high_a = INT_MIN;
 	data->low_b = INT_MAX;
 	data->high_b = INT_MIN;
+	data->high_b2 = INT_MIN;
 }
 
 void	ft_make_split(char *arg, t_data *data)
@@ -45,11 +46,12 @@ void	ft_make_split(char *arg, t_data *data)
 	ft_count_n_found(data);
 	ft_checksort(data, 1);
 	ft_indexation(data);
-	ft_sort_middle(data, 4);
-	ft_sort_middle(data, 2);
-	// ft_sort_middle(data, 2);
-	// ft_sort_high(data);
-	// ft_sort_low(data);
+	ft_sort(data, 4);
+	ft_sort(data, 2);
+		if (data->count % 2 != 0)
+		ft_push_b(data);
+	ft_merge(data, 4);
+	ft_error_n_out(data, 1);
 }
 
 void	ft_make_arg(t_data *data)
@@ -60,19 +62,15 @@ void	ft_make_arg(t_data *data)
 	ft_count_n_found(data);
 	ft_checksort(data, 1);
 	ft_indexation(data);
-	// ft_sort_middle(data, 10);
-	// ft_sort_middle(data, 9);
-	
-	// ft_sort_middle(data, 8);
-	// ft_sort_middle(data, 6);
-	ft_sort_middle(data, 5);
-	// ft_sort_middle(data, 4);
-	// ft_sort_middle(data, 3);
-	ft_sort_middle(data, 2);
-	// ft_merge(data);
-	// ft_sort_middle(data, 2);
-	// ft_sort_high(data);
-	// ft_sort_low(data);
+	// ft_sort(data, 24);
+	ft_sort(data, 6);
+	// ft_sort(data, 4);
+	ft_sort(data, 3);
+	ft_sort(data, 2);
+	if (data->count % 2 != 0)
+		ft_push_b(data);
+	ft_merge(data, 4);
+	ft_error_n_out(data, 1);
 }
 
 int	main(int argc, char **argv)
@@ -92,5 +90,5 @@ int	main(int argc, char **argv)
 	}
 	else if (argc < 2)
 		ft_error_n_out(data, 0);
-	// ft_iter_a(data);
+	return (0);
 }

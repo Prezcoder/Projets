@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 07:45:38 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/01/12 08:49:53 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/05/01 14:22:41 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 as an argument and returns its value of type int. 
 So basically the function is used to convert a string argument
 to an integer.*/
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int			i;
+	int			sign;
+	long int	result;
 
 	i = 0;
 	result = 0;
