@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 12:47:15 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/05/02 13:16:56 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/05/03 11:19:21 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,11 @@ void	ft_make_list(t_data *data, int i)
 	long int	nbr;
 	t_stack		*temp;
 
-	temp = NULL;
+	if (data->arg[i] == NULL)
+	{
+		ft_error_n_out(data, 1);
+		exit(EXIT_FAILURE);
+	}
 	while (data->arg[i])
 	{
 		nbr = ft_atoi(data->arg[i]);

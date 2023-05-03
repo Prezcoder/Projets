@@ -6,7 +6,7 @@
 /*   By: fbouchar <fbouchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 12:43:30 by fbouchar          #+#    #+#             */
-/*   Updated: 2023/05/02 13:17:16 by fbouchar         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:50:46 by fbouchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,8 @@ void	ft_count_n_found(t_data *data)
 	while (temp != NULL)
 	{
 		data->count++;
-		if (data->low_a > temp->number)
-			data->low_a = temp->number;
-		if (data->high_a < temp->number)
-			data->high_a = temp->number;
 		temp = temp->next;
 	}
-	if (data->count == 1)
-		ft_error_n_out(data, 1);
 }
 
 int	ft_checksort(t_data *data, int i)
@@ -39,12 +33,15 @@ int	ft_checksort(t_data *data, int i)
 	temp = data->a;
 	while (temp->next != NULL)
 	{	
-		if (temp->number > temp->next->number)
+		if (temp->index > temp->next->index)
 			return (0);
 		temp = temp->next;
 	}
 	if (i == 1)
+	{
 		ft_error_n_out(data, 1);
+		exit(EXIT_SUCCESS);
+	}
 	return (1);
 }
 
@@ -57,7 +54,7 @@ void	ft_error_n_out(t_data *data, int i)
 	}
 	if (data->a != NULL)
 		ft_free_stack(data->a);
-	if (data->a != NULL)
+	if (data->b != NULL)
 		ft_free_stack(data->b);
 	if (data->flag == 1)
 		ft_freeall(data->arg);
@@ -90,8 +87,6 @@ void	ft_check_number(t_data *data, int i)
 	int	j;
 
 	j = 0;
-	if (data->arg[i] == NULL)
-		ft_error_n_out(data, 0);
 	while (data->arg[i])
 	{
 		while (data->arg[i][j])

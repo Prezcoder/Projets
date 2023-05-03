@@ -10,6 +10,7 @@ SRC = 	push_swap.c \
 		ft_instruct.c \
 		ft_algo.c \
 		ft_actions.c \
+		ft_low_algo.c \
 
 OBJ = $(SRC:%.c=%.o)
 OBJ := $(OBJ:%=$O%)
